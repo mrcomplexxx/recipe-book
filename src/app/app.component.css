@@ -1,0 +1,16 @@
+.app {
+  font-family: 'roboto';
+}
+
+.header {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  align-items: center;
+}
+
+span {
+  flex-grow: 1;
+  font-size: 1.2rem;
+  cursor: default;
+}

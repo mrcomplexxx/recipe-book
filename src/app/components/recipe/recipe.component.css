@@ -1,0 +1,26 @@
+.recipeCard {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  padding: 1rem;
+  background: #ffc;
+  max-width: 500px;
+  border-radius: 1rem;
+  gap: .5rem;
+  box-shadow: .1rem .3rem .5rem #3337;
+}
+
+h2, h4 {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style: square;
+}
+
+i {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,21 @@
+.recipeBook {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: auto;
+}
+
+.deleteLink {
+  color: #f22;
+  cursor: pointer;
+}
+
+.viewLink {
+  color: #229;
+  cursor: pointer;
+}
+
+table, td, th {
+  border: solid 1px #333;
+  border-collapse:collapse;
+}

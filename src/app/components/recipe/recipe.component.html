@@ -1,0 +1,19 @@
+<div *ngIf="recipe; else notFound">
+  <div class="recipeCard">
+    <h2>{{ recipe.name }}</h2>
+    <i><span>{{ recipe.source }}</span><span>{{ recipe.prepTime | minutesDisplay }}</span></i>
+    <h4>Ingredients:</h4>
+    <ul>
+      <li *ngFor="let ingredient of recipe.ingredients">
+        {{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.measure}}
+      </li>
+    </ul>
+    <h4>Instructions:</h4>
+    <span>
+      {{ recipe.instructions }}
+    </span>
+  </div>
+</div>
+<ng-template #notFound>
+  Recipe not found.
+</ng-template>

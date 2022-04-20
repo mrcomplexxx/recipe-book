@@ -1,0 +1,68 @@
+<form class="recipeForm" #recipeForm="ngForm" (ngSubmit)="submitRecipe(recipeForm)">
+  <div class="formField">
+    <label for="name">
+      Name:
+    </label>
+    <input type="text" id="name" name="name" class="form-control"
+      required [(ngModel)]="recipe.name" #name="ngModel">
+    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+      class="alert">
+      <div *ngIf="name.errors?.['required']">
+        Name is required.
+      </div>
+    </div>
+  </div>
+  <div class="formField">
+    <label for="source">
+      Source:
+    </label>
+    <input type="text" id="source" name="source" class="form-control"
+      required [(ngModel)]="recipe.source" #source="ngModel">
+    <div *ngIf="source.invalid && (source.dirty || source.touched)"
+      class="alert">
+      <div *ngIf="source.errors?.['required']">
+        Source is required.
+      </div>
+    </div>
+  </div>
+  <app-ingredient-selection [ingredients]="recipe.ingredients" (ingredientChange)="ingredientChange($event)"></app-ingredient-selection>
+  <div *ngIf="ingredientError"
+    class="alert">
+    <div>
+      Please insert at least one ingredient.
+    </div>
+  </div>
+  <div class="formField">
+    <label for="preptime">
+      Preparation:
+    </label>
+    <input type="number" id="prepTime" name="prepTime" min="1" class="form-control"
+      required [(ngModel)]="recipe.prepTime" #prepTime="ngModel">
+    <span>min.</span>
+    <div *ngIf="prepTime.invalid && (prepTime.dirty || prepTime.touched)"
+      class="alert">
+      <div *ngIf="prepTime.errors?.['required']">
+        Preptime is required.
+      </div>
+      <div *ngIf="prepTime.errors?.['min']">
+        Preptime should be greater then 0.
+      </div>
+    </div>
+  </div>
+  <div class="formField">
+    <label for="instructions">
+      Preparation instructions:
+    </label>
+    <textarea name="instructions" rows="8" class="form-control"
+      required [(ngModel)]="recipe.instructions" #instructions="ngModel"></textarea>
+    <div *ngIf="instructions.invalid && (instructions.dirty || instructions.touched)"
+      class="alert">
+      <div *ngIf="instructions.errors?.['required']">
+        Preparation instructions are required.
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="button" [disabled]="!recipeForm.form.valid">
+    Submit
+  </button>
+</form>

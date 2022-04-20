@@ -1,0 +1,42 @@
+<div class="recipeBook">
+  <div *ngIf="recipes.length; then recipeList else noRecipes;"></div>
+  <ng-template #recipeList>
+    <h2>List of recipes:</h2>
+    <table>
+      <thead>
+        <th>#</th>
+        <th>Name</th>
+        <th>Source</th>
+        <th># of</th>
+        <th>Ingredients</th>
+        <th>Instructions</th>
+        <th>Prep Time</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        <tr class="tableRow" *ngFor="let recipe of recipes;">
+          <td>{{recipe.id}}</td>
+          <td>{{recipe.name}}</td>
+          <td>{{recipe.source}}</td>
+          <td>{{recipe.ingredients | arrayLength}}</td>
+          <td>{{recipe.ingredients | ingredientList}}</td>
+          <td>{{recipe.instructions | truncate}}</td>
+          <td>{{recipe.prepTime | minutesDisplay}}</td>
+          <td>
+            <span class="viewLink" [routerLink]="['/recipe/', recipe.id]">
+              View
+            </span>
+            <span class="deleteLink" (click)="deleteRecipe(recipe.id)">
+              Delete
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>You have {{ recipes.length }} recipes.</p>
+  </ng-template>
+  <ng-template #noRecipes>
+    <h2>No Recipes.</h2>
+    <a class="button" [routerLink]="['/add']">Add new recipe</a>
+  </ng-template>
+</div>

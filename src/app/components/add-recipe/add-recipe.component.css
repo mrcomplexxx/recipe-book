@@ -1,0 +1,52 @@
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.alert div {
+  background-color: #fed3d3;
+  color: #820000;
+  padding: .5rem;
+}
+
+.formField {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.formField > label {
+  margin-right: .5rem;
+}
+
+.formField > input, textarea {
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid #333;
+  flex-grow: 1;
+  background: transparent;
+}
+
+.formField > textarea {
+  width: 100%;
+}
+
+.alert {
+  margin-top: .5rem;
+  width: 100%;
+}
+
+.recipeForm {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin: auto;
+  max-width: 450px;
+  gap: 1rem;
+  background: #ffc;
+  padding: 1.3rem;
+  border-radius: 1rem;
+  box-shadow: .1rem .3rem .5rem #3337;
+}

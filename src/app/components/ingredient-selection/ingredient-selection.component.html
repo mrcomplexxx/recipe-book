@@ -1,0 +1,35 @@
+<div class="ingredientSelect">
+  <label>Ingredients:</label>
+  <div class="ingredientForm" *ngIf="ingredients.length">
+    <span>
+      Name
+    </span>
+    <span>
+      Quantity
+    </span>
+    <span>
+      Measure
+    </span>
+  </div>
+  <div class="ingredientForm" *ngFor="let ingredient of ingredients; let i = index;" [attr.data-index]="i">
+    <select class="selectField" name="name" [(ngModel)]="ingredient.name">
+      <option value="" disabled>Select Ingredient</option>
+      <option *ngFor="let ingredientName of availableIngredients"
+              [value]="ingredientName">
+        {{ingredientName}}
+      </option>
+    </select>
+    <input type="number" name="quantity" [(ngModel)]="ingredient.quantity">
+    <select class="selectField" name="measure" [(ngModel)]="ingredient.measure">
+      <option value="undefined" disabled>Select Measure</option>
+      <option *ngFor="let measure of availableMeasures"
+              [value]="measure">
+        {{measures[measure]}}
+      </option>
+    </select>
+  </div>
+  <div *ngIf="!ingredients.length">
+    No ingredients, add some.
+  </div>
+  <span class="button" (click)="addIngredient()">Add Ingredient</span>
+</div>
